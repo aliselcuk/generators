@@ -1,6 +1,4 @@
-<?php namespace Xethron\MigrationsGenerator\Generators;
-
-use Illuminate\Support\Facades\DB;
+<?php namespace AliSelcuk\Generators\Generators;
 
 class SchemaGenerator {
 

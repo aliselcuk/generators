@@ -1,21 +1,17 @@
-<?php namespace Xethron\MigrationsGenerator;
+<?php namespace AliSelcuk\Generators\Commands;
 
-use Way\Generators\Commands\GeneratorCommand;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-
-use Way\Generators\Generator;
-use Way\Generators\Filesystem\Filesystem;
-use Way\Generators\Compilers\TemplateCompiler;
-use Illuminate\Database\Migrations\MigrationRepositoryInterface;
-
-use Xethron\MigrationsGenerator\Generators\SchemaGenerator;
-use Xethron\MigrationsGenerator\Syntax\AddToTable;
-use Xethron\MigrationsGenerator\Syntax\DroppedTable;
-use Xethron\MigrationsGenerator\Syntax\AddForeignKeysToTable;
-use Xethron\MigrationsGenerator\Syntax\RemoveForeignKeysFromTable;
-
+use AliSelcuk\Generators\Compilers\TemplateCompiler;
+use AliSelcuk\Generators\Filesystem\Filesystem;
+use AliSelcuk\Generators\Generator;
+use AliSelcuk\Generators\Generators\SchemaGenerator;
+use AliSelcuk\Generators\Syntax\AddForeignKeysToTable;
+use AliSelcuk\Generators\Syntax\AddToTable;
+use AliSelcuk\Generators\Syntax\DroppedTable;
+use AliSelcuk\Generators\Syntax\RemoveForeignKeysFromTable;
 use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Database\Migrations\MigrationRepositoryInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 class MigrateGenerateCommand extends GeneratorCommand {
 
@@ -32,12 +28,12 @@ class MigrateGenerateCommand extends GeneratorCommand {
 	protected $description = 'Generate a migration from an existing table structure.';
 
 	/**
-	 * @var \Way\Generators\Filesystem\Filesystem
+	 * @var \AliSelcuk\Generators\Filesystem\Filesystem
 	 */
 	protected $file;
 
 	/**
-	 * @var \Way\Generators\Compilers\TemplateCompiler
+	 * @var \AliSelcuk\Generators\Compilers\TemplateCompiler
 	 */
 	protected $compiler;
 
@@ -52,7 +48,7 @@ class MigrateGenerateCommand extends GeneratorCommand {
 	protected $config;
 
 	/**
-	 * @var \Xethron\MigrationsGenerator\Generators\SchemaGenerator
+	 * @var \AliSelcuk\Generators\Generators\SchemaGenerator
 	 */
 	protected $schemaGenerator;
 
@@ -105,10 +101,12 @@ class MigrateGenerateCommand extends GeneratorCommand {
      */
     protected $connection = null;
 
+
+
     /**
-	 * @param \Way\Generators\Generator  $generator
-	 * @param \Way\Generators\Filesystem\Filesystem  $file
-	 * @param \Way\Generators\Compilers\TemplateCompiler  $compiler
+	 * @param \AliSelcuk\Generators\Generator  $generator
+	 * @param \AliSelcuk\Generators\Filesystem\Filesystem  $file
+	 * @param \AliSelcuk\Generators\Compilers\TemplateCompiler  $compiler
 	 * @param \Illuminate\Database\Migrations\MigrationRepositoryInterface  $repository
 	 * @param \Illuminate\Config\Repository  $config
 	 */

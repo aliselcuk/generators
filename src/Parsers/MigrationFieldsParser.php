@@ -1,4 +1,4 @@
-<?php namespace Way\Generators\Parsers;
+<?php namespace AliSelcuk\Generators\Parsers;
 
 class MigrationFieldsParser {
 

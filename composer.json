@@ -1,10 +1,8 @@
 {
     "name": "aliselcuk/generators",
-    "type": "superv-addon",
     "autoload": {
         "psr-4": {
-            "Xethron\\MigrationsGenerator\\": "src/MigrationsGenerator/",
-            "Way\\Generators\\": "src/"
+            "AliSelcuk\\Generators\\": "src/"
         }
     }
 }

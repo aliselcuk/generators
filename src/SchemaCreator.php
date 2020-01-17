@@ -1,11 +1,11 @@
-<?php namespace Way\Generators;
+<?php namespace AliSelcuk\Generators;
 
-use Way\Generators\Filesystem\Filesystem;
-use Way\Generators\Compilers\TemplateCompiler;
-use Way\Generators\Syntax\AddToTable;
-use Way\Generators\Syntax\CreateTable;
-use Way\Generators\Syntax\DroppedTable;
-use Way\Generators\Syntax\RemoveFromTable;
+use AliSelcuk\Generators\Compilers\TemplateCompiler;
+use AliSelcuk\Generators\Filesystem\Filesystem;
+use AliSelcuk\Generators\Syntax\AddToTable;
+use AliSelcuk\Generators\Syntax\CreateTable;
+use AliSelcuk\Generators\Syntax\DroppedTable;
+use AliSelcuk\Generators\Syntax\RemoveFromTable;
 use Exception;
 
 class SchemaCreator {

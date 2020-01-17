@@ -1,3 +1,3 @@
-<?php namespace Way\Generators;
+<?php namespace AliSelcuk\Generators;
 
 class InvalidMigrationName extends \Exception {}

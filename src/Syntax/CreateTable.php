@@ -1,6 +1,6 @@
-<?php namespace Way\Generators\Syntax;
+<?php namespace AliSelcuk\Generators\Syntax;
 
-class CreateTable extends Table {
+class CreateTable extends BaseTable {
 
     /**
      * Build string for creating a

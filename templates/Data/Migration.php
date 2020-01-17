@@ -1,7 +1,7 @@
-<?php namespace Way\Generators\Templates\Data;
+<?php namespace AliSelcuk\Generators\Templates\Data;
 
-use Way\Generators\Parsers\MigrationFieldsParser;
-use Way\Generators\Parsers\MigrationNameParser;
+use AliSelcuk\Generators\Parsers\MigrationFieldsParser;
+use AliSelcuk\Generators\Parsers\MigrationNameParser;
 
 class Migration {
 
@@ -111,7 +111,7 @@ class Migration {
      */
     private function resolveSchemaCreator()
     {
-        return App::make('Way\Generators\SchemaCreator');
+        return App::make('AliSelcuk\Generators\SchemaCreator');
     }
 
 } 

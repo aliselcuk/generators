@@ -1,11 +1,9 @@
-<?php namespace Way\Generators\Commands;
+<?php namespace AliSelcuk\Generators\Commands;
 
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
+use AliSelcuk\Generators\Filesystem\FileAlreadyExists;
+use AliSelcuk\Generators\Generator;
 use Illuminate\Console\Command;
-use Way\Generators\Filesystem\FileAlreadyExists;
-use Way\Generators\Generator;
-use Config;
+use Symfony\Component\Console\Input\InputOption;
 
 abstract class GeneratorCommand extends Command {
 
@@ -84,7 +82,7 @@ abstract class GeneratorCommand extends Command {
     {
         if ($path = $this->option($option)) return $path;
 
-        return Config::get("generators.config.{$configName}");
+        return config("generators.config.{$configName}");
     }
 
     /**

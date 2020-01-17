@@ -1,4 +1,4 @@
-<?php namespace Way\Generators\Compilers;
+<?php namespace AliSelcuk\Generators\Compilers;
 
 interface Compiler {
 

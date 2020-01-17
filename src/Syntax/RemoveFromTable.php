@@ -1,6 +1,6 @@
-<?php namespace Way\Generators\Syntax;
+<?php namespace AliSelcuk\Generators\Syntax;
 
-class RemoveFromTable extends Table {
+class RemoveFromTable extends BaseTable {
 
     /**
      * Compile and return string for removing columns

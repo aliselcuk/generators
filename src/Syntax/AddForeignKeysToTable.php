@@ -1,8 +1,8 @@
-<?php namespace Xethron\MigrationsGenerator\Syntax;
+<?php namespace AliSelcuk\Generators\Syntax;
 
 /**
  * Class AddForeignKeysToTable
- * @package Xethron\MigrationsGenerator\Syntax
+ * @package AliSelcuk\Generators\Syntax
  */
 class AddForeignKeysToTable extends Table {
 
