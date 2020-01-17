@@ -1,5 +1,8 @@
 {
     "name": "aliselcuk/generators",
+    "require": {
+        "doctrine/dbal": "~2.4"
+    },
     "autoload": {
         "psr-4": {
             "AliSelcuk\\Generators\\": "src/"
