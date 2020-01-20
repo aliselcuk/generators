@@ -301,6 +301,7 @@ class MigrateGenerateCommand extends GeneratorCommand {
 	 */
 	protected function getDatePrefix()
 	{
+	    return '2020_01_01_000000';
 		return $this->datePrefix;
 	}
 

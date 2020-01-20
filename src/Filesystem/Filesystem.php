@@ -2,17 +2,9 @@
 
 class Filesystem {
 
-    /**
-     * Make a file
-     *
-     * @param $file
-     * @param $content
-     * @throws FileAlreadyExists
-     * @return int
-     */
-    public function make($file, $content)
+    public function make($file, $content, $force = false)
     {
-        if ( $this->exists($file))
+        if ( $this->exists($file) && !$force)
         {
             throw new FileAlreadyExists;
         }
@@ -20,24 +12,11 @@ class Filesystem {
         return file_put_contents($file, $content);
     }
 
-    /**
-     * Determine if file exists
-     *
-     * @param $file
-     * @return bool
-     */
     public function exists($file)
     {
         return file_exists($file);
     }
 
-    /**
-     * Fetch the contents of a file
-     *
-     * @param $file
-     * @throws FileNotFound
-     * @return string
-     */
     public function get($file)
     {
         if ( ! $this->exists($file))

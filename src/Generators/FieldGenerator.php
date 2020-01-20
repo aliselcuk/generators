@@ -46,6 +46,15 @@ class FieldGenerator
         return array_merge($fields, $indexes);
     }
 
+    protected function sortByName($columns)
+    {
+        uasort($columns, function ($columnA, $columnB) {
+            return strcmp($columnA->getName(), $columnB->getName());
+        });
+
+        return $columns;
+    }
+
     /**
      * Return all enum columns for a given table
      *
@@ -93,6 +102,9 @@ class FieldGenerator
     protected function getFields($columns, IndexGenerator $indexGenerator)
     {
         $fields = [];
+
+        $columns = $this->sortByName($columns);
+
         foreach ($columns as $column) {
             $name = $column->getName();
             $type = $column->getType()->getName();
@@ -152,8 +164,9 @@ class FieldGenerator
                 if ($type !== 'text') {
                     $args = $this->getLength($length);
                 } else {
-                    if ($length > 65535)
+                    if ($length > 65535) {
                         $type = 'longText';
+                    }
                 }
             }
 
@@ -166,9 +179,9 @@ class FieldGenerator
             if ($index) {
                 $decorators[] = $this->decorate($index->type, $index->name);
             }
-            if ($comment) {
-                $decorators[] = "comment('".addcslashes($comment, "\\'")."')";
-            }
+//            if ($comment) {
+//                $decorators[] = "comment('".addcslashes($comment, "\\'")."')";
+//            }
 
             $field = ['field' => $name, 'type' => $type];
             if ($decorators) {

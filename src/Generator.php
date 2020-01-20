@@ -26,7 +26,7 @@ class Generator
 
         // Now that we have the compiled template,
         // we can actually generate the file.
-        $this->file->make($filePathToGenerate, $template);
+        $this->file->make($filePathToGenerate, $template, true);
     }
 
     public function compile($templatePath, array $data, TemplateCompiler $compiler)
