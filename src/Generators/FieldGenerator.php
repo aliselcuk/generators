@@ -89,6 +89,10 @@ class FieldGenerator
         foreach ($this->getEnum($table) as $column) {
             $fields[$column->column_name]['type'] = 'enum';
             $fields[$column->column_name]['args'] = str_replace('enum(', 'array(', $column->column_type);
+
+            if (in_array("default('')", $fields[$column->column_name]['decorators'])) {
+                unset($fields[$column->column_name]['decorators']);
+            }
         }
 
         return $fields;
@@ -109,13 +113,10 @@ class FieldGenerator
             $name = $column->getName();
             $type = $column->getType()->getName();
             $length = $column->getLength();
-            $default = $column->getDefault();
-            if (is_bool($default)) {
-                $default = $default === true ? 1 : 0;
-            }
+
             $nullable = (! $column->getNotNull());
             $index = $indexGenerator->getIndex($name);
-            $comment = $column->getComment();
+//            $comment = $column->getComment();
             $decorators = null;
             $args = null;
 
@@ -173,6 +174,24 @@ class FieldGenerator
             if ($nullable) {
                 $decorators[] = 'nullable';
             }
+
+            $default = $column->getDefault();
+            if (is_bool($default)) {
+                $default = $default === true ? 1 : 0;
+            }
+
+            if (! $default && ! $column->getAutoincrement()) {
+                if (in_array($type, ['decimal', 'boolean', 'tinyInteger', 'smallInteger', 'integer', 'bigInteger'])) {
+                    $default = 0;
+                } elseif (in_array($type, ['string', 'text', 'longText'])) {
+                    $default = "''";
+                } elseif ($type === 'date') {
+                    $default = "'0000-00-00'";
+                } elseif ($type === 'dateTime') {
+                    $default = "'0000-00-00 00:00:00'";
+                }
+            }
+
             if ($default !== null) {
                 $decorators[] = $this->getDefault($default, $type);
             }

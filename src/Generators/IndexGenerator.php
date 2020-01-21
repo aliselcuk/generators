@@ -61,7 +61,8 @@ class IndexGenerator {
 
 		if ( ! $this->ignoreIndexNames and ! $this->isDefaultIndexName($table, $index->getName(), $type, $index->getColumns())) {
 			// Sent Index name to exclude spaces
-			$array['name'] = str_replace(' ', '', $index->getName());
+			$array['name'] = md5(uniqid());
+//			$array['name'] = str_replace(' ', '', $index->getName());
 		}
 		return $array;
 	}

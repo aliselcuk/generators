@@ -50,12 +50,13 @@ abstract class GeneratorCommand extends Command {
     /**
      * Compile and generate the file.
      */
-    public function fire()
+    public function handle()
     {
         $filePathToGenerate = $this->getFileGenerationPath();
 
         try
         {
+
             $this->generator->make(
                 $this->getTemplatePath(),
                 $this->getTemplateData(),
